@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Photo Feed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b7a52fc284.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body>
+  <!-- NAV BAR -->
+    <nav class="navbar sticky-top navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://marcas-logos.net/wp-content/uploads/2020/01/insta-logo.png" alt="Instagram Logo" width="40" height="40">
+                <img src="data:image/png;base64,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" alt="Instagram Logo" width="120" height="40">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse buttons" id="navbarSupportedContent">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-dark mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-plus-square"></i>
+              </button>
+              <button class="btn btn-outline-dark mx-2" type="submit"><i class="bi bi-heart"></i></button>
+              <button class="btn btn-outline-dark mx-2" type="submit"><i class="bi bi-messenger"></i></button>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-gear"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear-wide"></i> Configuración</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-archive"></i> Archivo</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-clock-history"></i> Tu Actividad</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-qr-code-scan"></i> Código QR</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark"></i> Guardado</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-credit-card"></i> Pedidos y Pagos</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-person-lines-fill"></i> Mejores Amigos</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-star"></i> Favoritos</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-heart-pulse"></i> Centro de Información COVID-19</a></li>
+                  </ul>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
+<!-- END of NAV BAR -->
+               <!-- Modal -->
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Create New Post</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <label for="message-text" class="col-form-label"></label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                      
+                     
+                      <div><button><i class="bi bi-camera"></i></button><button><i class="bi bi-geo-alt"></i></i></button></div>          
+                                       
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-success">Publish</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- END of MODAL -->
+<!-- NAV PILLS -->
+  <ul class="nav nav-pills mb-3 d-flex justify-content-center mt-2" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active gridButton" id="pills-Grid-tab" data-bs-toggle="pill" data-bs-target="#pills-Grid" type="button" role="tab" aria-controls="pills-Grid" aria-selected="true"><i class="bi bi-grid-3x3-gap-fill"></i></button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link cascadeButton" id="pills-Cascade-tab" data-bs-toggle="pill" data-bs-target="#pills-Cascade" type="button" role="tab" aria-controls="pills-Cascade" aria-selected="false"><i class="bi bi-arrow-down-square "></i></button>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-Grid" role="tabpanel" aria-labelledby="pills-Grid-tab" tabindex="0">
+    <!-- GRID CARD GROUP -->
+      <div class="card-group mx-5">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/904/425/400" class="card-img-top" alt="...">
+          
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1002/425/400" class="card-img-top" alt="...">
+            
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1003/425/400" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1004/425/400" class="card-img-top" alt="...">
+            
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1013/425/400" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1015/425/400" class="card-img-top" alt="...">
+             
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1022/425/400" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1024/425/400" class="card-img-top" alt="...">
+             
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="https://picsum.photos/id/1025/425/400" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- END of GRID CARD GROUP -->
+    </div>
+    <div class="tab-pane fade" id="pills-Cascade" role="tabpanel" aria-labelledby="pills-Cascade-tab" tabindex="0">
+  <!-- CASCADE CARD GROUP -->
+    <div class="card-group d-flex justify-content-center">
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1011/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Kayaking on my favorite Lake</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1002/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Abstract Art</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1003/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Live-Action Bambi</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1004/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">#soCliché Kiss under rain</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1013/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Tomame una foto así como que no me doy cuenta...</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1015/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">River at the bottom of the Canyon</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1022/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Northern Lights</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1024/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Great Vulture</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-10 mx-auto">
+          <div class="card my-3">
+            <img src="https://picsum.photos/id/1025/325/300" class="card-img-top" alt="...">
+            <div class="card-body">
+              <i class="bi bi-heart-fill mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-chat mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-send mx-1" style="font-size: 20px;"></i>
+              <i class="bi bi-bookmark ms-5 bookmark-icon-cascade" style="font-size: 20px;"></i>
+              <h5 class="card-title">Pug-Vather the last Jedi</h5>
+              <p class="card-text">Le gusta a <strong>Vanya</strong> y <strong>24.567 personas más</strong></p>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- END of CASCADE CARD GROUP -->
+    </div>
+  </div>
+<!-- END of NAV PILLS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> 
+</body>
+</html>

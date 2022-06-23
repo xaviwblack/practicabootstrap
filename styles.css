@@ -1,0 +1,39 @@
+/* NAV BAR STYLING */
+.container-fluid {
+    padding: 0 100px;
+}
+.buttons {
+    padding-left: 750px;
+}
+/* END of NAV BAR STYLING */
+
+/* NAV PILLS STYLING */
+.tab-pane {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+   }
+.gridButton, .cascadeButton {
+    color: rgb(71,73,84);
+}
+.gridButton:hover, .cascadeButton:hover {
+    color: rgb(0,78,137);
+    font-size: larger;
+}
+.gridButton:active, .cascadeButton:active {
+    font-size: larger;
+}
+/* END of NAV PILLS STYLING */
+
+/* CARD ICONS STYLING */
+.bookmark-icon {
+    padding-left: 270px;
+}
+.bookmark-icon-cascade {
+    padding-left: 500px;
+}
+.row {
+    --bs-gutter-x: 0rem;
+}
+/* END of CARD ICONS STYLING */
